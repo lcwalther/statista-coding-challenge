@@ -32,7 +32,7 @@ function App() {
           </button>
         </form>
       </section>
-      <section className="max-w-screen-md mx-auto px-3 py-10">
+      <section className="max-w-screen-md mx-auto px-5 py-8">
         Suchergebnisse
       </section>
     </div>
