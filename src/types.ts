@@ -14,10 +14,3 @@ type TeaserImageUrl = {
   width: number;
   src: string;
 }
-
-// <Route exact path={`/${TEST}/:objectID`} element={<div><h1>hallo</h1><Outlet /></div>}>
-//           <Route exact path="" element={subFragment(<ObjectActionsPanel />)}>
-//             <Route exact path="edit" element={<TestEditorPanel />} />
-//           </Route>
-//           <Route exact path="room" element={<TestRoomView />} />
-//         </Route>
