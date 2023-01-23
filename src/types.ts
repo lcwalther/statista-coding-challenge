@@ -1,5 +1,5 @@
 export type TSearchResult = {
-  identifier: string;  
+  identifier: number;  
   title: string;
   link: string;
   subject: string;

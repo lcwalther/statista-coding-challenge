@@ -1,4 +1,5 @@
 import { TSearchResult } from '../../../types';
+import { Link, useSearchParams } from 'react-router-dom';
 
 interface ISearchResultItemProps {
   item: TSearchResult;
@@ -7,21 +8,31 @@ interface ISearchResultItemProps {
 export const SearchResultItem: React.FC<ISearchResultItemProps> = ({
   item
 }: ISearchResultItemProps) => {
+  let [searchParams] = useSearchParams();
+  console.log(searchParams);
   return (
-    <div className="mb-2.5 w-full hover:bg-statista-light-grey rounded flex p-2.5">
-      <div
-        className={`${
-          item.premium ? 'bg-iconPremium' : 'bg-iconBasic'
-        } h-6 w-6`}
-      ></div>
-      <div className="ml-4 overflow-hidden">
-        <p className="text-statista text-base font-semibold text-ellipsis overflow-hidden whitespace-nowrap">
-          {item.title}
-        </p>
-        <p className="mt-1 text-statista-grey text-base text-sm text-ellipsis overflow-hidden whitespace-nowrap">
-          {item.subject}
-        </p>
+    <Link
+      // className="flex !flex-nowrap gap-4"
+      to={{
+        pathname: `/items/${item.identifier}`
+        // search: searchParams.toString()
+      }}
+    >
+      <div className="mb-2.5 w-full hover:bg-statista-light-grey rounded flex p-2.5">
+        <div
+          className={`${
+            item.premium ? 'bg-iconPremium' : 'bg-iconBasic'
+          } h-6 w-6`}
+        ></div>
+        <div className="ml-4 overflow-hidden">
+          <p className="text-statista text-base font-semibold text-ellipsis overflow-hidden whitespace-nowrap">
+            {item.title}
+          </p>
+          <p className="mt-1 text-statista-grey text-base text-sm text-ellipsis overflow-hidden whitespace-nowrap">
+            {item.subject}
+          </p>
+        </div>
       </div>
-    </div>
+    </Link>
   );
 };
