@@ -1,4 +1,4 @@
-export type SearchResult = {
+export type TSearchResult = {
   identifier: string;  
   title: string;
   link: string;
@@ -7,10 +7,10 @@ export type SearchResult = {
   date: string;
   premium: number;
   image_url: string;
-  teaser_image_urls: TeaserImageUrl[]
+  teaser_image_urls: TTeaserImageUrl[]
 }
 
-type TeaserImageUrl = {
+type TTeaserImageUrl = {
   width: number;
   src: string;
 }

@@ -1,12 +1,11 @@
 import './App.css';
 import { useQuery } from '@tanstack/react-query';
-import { SearchResult } from './types';
 import { SearchButton } from './components/SearchButton/';
-import { SearchResultItem } from './components/SearchResultItem/';
+import { SearchResults } from './components/SearchResults/';
 
 function App() {
   const { isLoading, error, data } = useQuery({
-    queryKey: ['repoData'],
+    queryKey: ['searchData'],
     queryFn: () =>
       fetch(
         'https://cdn.statcdn.com/static/application/search_results.json'
@@ -32,9 +31,7 @@ function App() {
         </form>
       </section>
       <section className="max-w-screen-md mx-auto px-5 py-8">
-        {data?.items?.map((item: SearchResult) => (
-          <SearchResultItem key={item.identifier} item={item} />
-        ))}
+        <SearchResults isLoading={isLoading} items={data?.items} />
       </section>
     </div>
   );

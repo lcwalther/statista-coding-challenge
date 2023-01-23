@@ -1,12 +1,12 @@
-import { SearchResult } from '../../types';
+import { TSearchResult } from '../../types';
 
-interface SearchResultItemProps {
-  item: SearchResult;
+interface ISearchResultItemProps {
+  item: TSearchResult;
 }
 
-export const SearchResultItem: React.FC<SearchResultItemProps> = ({
+export const SearchResultItem: React.FC<ISearchResultItemProps> = ({
   item
-}: SearchResultItemProps) => {
+}: ISearchResultItemProps) => {
   return (
     <div className="mb-2.5 w-full hover:bg-statista-light-grey rounded flex p-2.5">
       <div
