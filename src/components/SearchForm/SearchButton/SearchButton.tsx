@@ -7,7 +7,6 @@ export const SearchButton: FC = () => {
       <div className="hidden md:flex md:visible text-white flex-no-wrap mr-5">
         Statista-Suche
       </div>
-
       <img className="h-5 w-5" src={searchIcon} alt="Search" />
     </button>
   );
