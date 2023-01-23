@@ -8,8 +8,6 @@ interface ISearchResultItemProps {
 export const SearchResultItem: React.FC<ISearchResultItemProps> = ({
   item
 }: ISearchResultItemProps) => {
-  let [searchParams] = useSearchParams();
-  console.log(searchParams);
   return (
     <Link
       to={{

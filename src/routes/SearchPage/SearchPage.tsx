@@ -41,7 +41,7 @@ export const SearchPage: FC = () => {
         <SearchForm onSubmit={handleSubmit} />
       </section>
       <section className="max-w-screen-md mx-auto px-5 py-8">
-        <SearchResults items={data?.items} />
+        {data?.items && <SearchResults items={data?.items} />}
       </section>
     </>
   );
