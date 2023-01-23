@@ -1,13 +1,14 @@
 import { useQuery } from '@tanstack/react-query';
 import { FC } from 'react';
 import { useParams } from 'react-router-dom';
+import { FavoritesButton } from '../../components/FavoritesButton';
 import { TSearchResult } from '../../types';
 
 export const DetailPage: FC = () => {
-  let { identifier } = useParams();
+  let { id } = useParams();
 
   const { data } = useQuery({
-    queryKey: ['searchData', identifier],
+    queryKey: ['searchData', id],
     queryFn: async () =>
       await fetch(
         'https://cdn.statcdn.com/static/application/search_results.json'
@@ -16,8 +17,9 @@ export const DetailPage: FC = () => {
 
   if (data) {
     const item = data.items.find((item: TSearchResult) => {
-      return item.identifier.toString() === identifier;
+      return item.identifier.toString() === id;
     });
+
     if (item) {
       const formattedDate = new Date(item.date).toLocaleDateString('de-DE', {
         day: 'numeric',
@@ -26,11 +28,14 @@ export const DetailPage: FC = () => {
       });
 
       return (
-        <article className="max-w-screen-md mx-auto px-5 bg-white rounded p-5 shadow-xl text-statista-grey">
+        <article className="group/item max-w-screen-md mx-auto px-5 mt-7 bg-white rounded p-5 shadow-xl text-statista-grey">
           <header>
-            <h1 className="mb-1.5 font-bold text-statista-dark md:text-statista-grey text-lg leading-6">
-              {item.title}
-            </h1>
+            <div className="flex w-full justify-between">
+              <h1 className="mb-1.5 font-bold text-statista-dark md:text-statista-grey text-lg leading-6">
+                {item.title}
+              </h1>
+              <FavoritesButton id={item.identifier} />
+            </div>
             <div className="w-24 mt-3 mb-2 h-px bg-gray-400 md:hidden"></div>
             <span className="mb-2.5">Veröffentlicht am {formattedDate}</span>
           </header>

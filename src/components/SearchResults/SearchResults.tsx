@@ -18,7 +18,7 @@ export const SearchResults: FC<ISearchResultsProps> = ({
 
   return (
     <>
-      {!items.length ? (
+      {!items.length && q ? (
         <div className="text-statista-grey text-base">
           Es wurden keine Suchergebnisse für "{q}" gefunden.
         </div>
