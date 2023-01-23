@@ -1,6 +1,6 @@
 import { FC } from 'react';
 import { TSearchResult } from '../../types';
-import { SearchResultItem } from '../SearchResultItem';
+import { SearchResultItem } from './SearchResultItem';
 
 interface ISearchResultsProps {
   items: TSearchResult[];

@@ -1,4 +1,4 @@
-import { TSearchResult } from '../../types';
+import { TSearchResult } from '../../../types';
 
 interface ISearchResultItemProps {
   item: TSearchResult;

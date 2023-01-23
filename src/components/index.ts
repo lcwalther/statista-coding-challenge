@@ -1,2 +1,2 @@
-export { SearchButton } from './SearchButton'
-export { SearchResultItem } from './SearchResultItem'
+export { SearchButton } from './SearchForm/SearchButton'
+export { SearchResultItem } from './SearchResults/SearchResultItem'
