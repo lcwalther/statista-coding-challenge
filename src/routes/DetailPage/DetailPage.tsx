@@ -19,16 +19,11 @@ export const DetailPage: FC = () => {
       return item.identifier.toString() === identifier;
     });
     if (item) {
-      const date = item.date;
-      const newDate = new Date(date);
-      const formattedDate = newDate
-        .toLocaleDateString('de-DE', {
-          day: 'numeric',
-          month: 'numeric',
-          year: 'numeric'
-        })
-        .split('.')
-        .join('.');
+      const formattedDate = new Date(item.date).toLocaleDateString('de-DE', {
+        day: 'numeric',
+        month: 'numeric',
+        year: 'numeric'
+      });
 
       return (
         <article className="max-w-screen-md mx-auto px-5 bg-white rounded p-5 shadow-xl text-statista-grey">
