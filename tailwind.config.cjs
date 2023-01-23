@@ -17,6 +17,9 @@ module.exports = {
           'url(https://cdn.statcdn.com/static/icons/products/product-icons.svg?uxh8k29#statisticPremium_icon)',
         iconBasic:
           'url(https://cdn.statcdn.com/static/icons/products/product-icons.svg?uxh8k29#statistic_icon)'
+      },
+      fontFamily: {
+        'open-sans': ['Open Sans']
       }
     }
   },

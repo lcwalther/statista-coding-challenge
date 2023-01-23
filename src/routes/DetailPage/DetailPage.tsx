@@ -39,7 +39,7 @@ export const DetailPage: FC = () => {
             <div className="w-24 mt-3 mb-2 h-px bg-gray-400 md:hidden"></div>
             <span className="mb-2.5">Veröffentlicht am {formattedDate}</span>
           </header>
-          <div className="px-2 pt-2">
+          <div className="px-2 pt-2 tracking-normal">
             <div
               className={`${
                 item.premium ? 'bg-iconPremium' : 'bg-iconBasic'
