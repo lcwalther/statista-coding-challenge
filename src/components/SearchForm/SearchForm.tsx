@@ -1,4 +1,5 @@
 import { FC } from 'react';
+import { useParams } from 'react-router-dom';
 import { SearchButton } from './SearchButton';
 
 interface ISearchFormProps {
@@ -8,6 +9,8 @@ interface ISearchFormProps {
 export const SearchForm: FC<ISearchFormProps> = ({
   onSubmit
 }: ISearchFormProps) => {
+  const { q } = useParams();
+
   return (
     <form
       className="mt-12 md:mt-16 max-w-screen-md w-full flex"
@@ -18,6 +21,7 @@ export const SearchForm: FC<ISearchFormProps> = ({
         placeholder="Statistiken, Prognosen und Umfragen finden"
         type="search"
         name="search"
+        defaultValue={q || ''}
       ></input>
       <SearchButton />
     </form>

@@ -2,14 +2,16 @@ import React, { FC, useState } from 'react';
 import { useQuery } from '@tanstack/react-query';
 import { SearchResults, SearchForm } from '../../components';
 import { TSearchResult } from '../../types';
+import { useParams, useNavigate } from 'react-router-dom';
 
 export const SearchPage: FC = () => {
-  const [searchTerm, setSearchTerm] = useState('');
+  const { q } = useParams();
+  const navigate = useNavigate();
 
   const { data } = useQuery({
-    queryKey: ['searchData', searchTerm],
+    queryKey: ['searchData', q],
     queryFn: () => {
-      if (searchTerm.toLowerCase() === 'statista') {
+      if (q?.toLowerCase() === 'statista') {
         return fetch(
           'https://cdn.statcdn.com/static/application/search_results.json'
         ).then((res) => res.json());
@@ -24,7 +26,7 @@ export const SearchPage: FC = () => {
     const target = e.target as typeof e.target & {
       search: { value: string };
     };
-    setSearchTerm(target.search.value);
+    navigate(`/search/${target.search.value}`);
   };
 
   return (

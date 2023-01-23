@@ -6,6 +6,7 @@ function App() {
     <div className="h-screen">
       <Routes>
         <Route path="/" element={<SearchPage />} />
+        <Route path="/search/:q" element={<SearchPage />} />
         <Route path="/items/:identifier" element={<DetailPage />} />
         <Route path="/favorites" element={<FavoritesPage />} />
       </Routes>

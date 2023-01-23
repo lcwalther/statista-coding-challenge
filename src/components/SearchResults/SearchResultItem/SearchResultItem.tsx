@@ -12,10 +12,8 @@ export const SearchResultItem: React.FC<ISearchResultItemProps> = ({
   console.log(searchParams);
   return (
     <Link
-      // className="flex !flex-nowrap gap-4"
       to={{
         pathname: `/items/${item.identifier}`
-        // search: searchParams.toString()
       }}
     >
       <div className="mb-2.5 w-full hover:bg-statista-light-grey rounded flex p-2.5">
