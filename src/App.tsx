@@ -1,8 +1,8 @@
 import './App.css';
 import { useQuery } from '@tanstack/react-query';
 import { SearchResult } from './types';
-import { SearchButton } from './components/SearchButton';
-import { SearchResultItem } from './components/SearchResultItem';
+import { SearchButton } from './components/SearchButton/';
+import { SearchResultItem } from './components/SearchResultItem/';
 
 function App() {
   const { isLoading, error, data } = useQuery({

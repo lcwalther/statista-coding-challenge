@@ -1,4 +1,4 @@
-import { SearchResult } from '../types';
+import { SearchResult } from '../../types';
 
 interface SearchResultItemProps {
   item: SearchResult;
