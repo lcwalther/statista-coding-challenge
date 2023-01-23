@@ -31,11 +31,13 @@ export const SearchResults: FC<ISearchResultsProps> = ({
           <SearchResultItem key={item.identifier} item={item} />
         ))
       )}
-      <Pagination
-        currentPage={currentPage}
-        pagesCount={pagesCount}
-        onPageChange={setCurrentPage}
-      />
+      {pagesCount > 1 && (
+        <Pagination
+          currentPage={currentPage}
+          pagesCount={pagesCount}
+          onPageChange={setCurrentPage}
+        />
+      )}
     </>
   );
 };
