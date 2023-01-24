@@ -1,25 +1,22 @@
 import { describe, it } from 'vitest';
-import { render, screen, waitFor } from '@testing-library/react';
-import { Router } from 'react-router-dom';
+import { screen } from '@testing-library/react';
 import App from './App';
-import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import { customRender } from './testUtils';
 
 describe('App', () => {
-  const queryClient = new QueryClient();
-
   it('renders the top navigation', async () => {
     // given
-    render(
-      <QueryClientProvider client={queryClient}>
-        <App />
-      </QueryClientProvider>
-    );
+    const { user } = customRender(<App />);
 
-    // when
-
-    // then
     expect(screen.getByText('Suche')).toBeInTheDocument();
     expect(screen.getByText('Favoriten')).toBeInTheDocument();
+
+    // when
+    await user.click(screen.getByText('Favoriten'));
+
+    // then
+    const titleValue = screen.getByRole('heading', { name: 'Favoriten' });
+    expect(titleValue).toBeInTheDocument();
   });
 
   test.skip('renders the search page', async () => {});
