@@ -1,24 +1,13 @@
 import React, { FC } from 'react';
-import { useQuery } from '@tanstack/react-query';
 import { SearchResults, SearchForm } from '../../components';
 import { useParams, useNavigate } from 'react-router-dom';
+import { useFetchSearchData } from '../hooks';
 
 export const SearchPage: FC = () => {
   const { q } = useParams();
   const navigate = useNavigate();
 
-  const { data } = useQuery({
-    queryKey: ['searchData', q],
-    queryFn: () => {
-      if (q?.toLowerCase() === 'statista') {
-        return fetch(
-          'https://cdn.statcdn.com/static/application/search_results.json'
-        ).then((res) => res.json());
-      } else {
-        return null;
-      }
-    }
-  });
+  const { data } = useFetchSearchData(q as string);
 
   const handleSubmit = (e: React.SyntheticEvent) => {
     e.preventDefault();

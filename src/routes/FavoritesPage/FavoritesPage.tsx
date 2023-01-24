@@ -2,18 +2,13 @@ import { useQuery } from '@tanstack/react-query';
 import { FC, useEffect, useState } from 'react';
 import { SearchResults } from '../../components';
 import { TSearchResult } from '../../types';
+import { useFetchFavorites } from '../hooks';
 
 export const FavoritesPage: FC = () => {
   const [favoriteIds, setFavoriteIds] = useState<number[]>([]);
   const [favoriteItems, setFavoriteItems] = useState<TSearchResult[]>([]);
 
-  const { data } = useQuery({
-    queryKey: ['searchData'],
-    queryFn: async () =>
-      await fetch(
-        'https://cdn.statcdn.com/static/application/search_results.json'
-      ).then((res) => res.json())
-  });
+  const { data } = useFetchFavorites();
 
   useEffect(() => {
     const favoriteIdsString = window.localStorage.getItem('favoriteIds');

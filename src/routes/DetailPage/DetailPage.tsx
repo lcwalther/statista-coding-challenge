@@ -3,17 +3,12 @@ import { FC } from 'react';
 import { useParams } from 'react-router-dom';
 import { FavoritesButton } from '../../components/FavoritesButton';
 import { TSearchResult } from '../../types';
+import { useFetchDetails } from '../hooks';
 
 export const DetailPage: FC = () => {
   const { id } = useParams();
 
-  const { data } = useQuery({
-    queryKey: ['searchData', id],
-    queryFn: async () =>
-      await fetch(
-        'https://cdn.statcdn.com/static/application/search_results.json'
-      ).then((res) => res.json())
-  });
+  const { data } = useFetchDetails(id);
 
   if (data) {
     const item = data.items.find((item: TSearchResult) => {
