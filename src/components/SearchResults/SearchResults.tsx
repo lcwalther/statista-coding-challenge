@@ -8,16 +8,17 @@ interface ISearchResultsProps {
   items: TSearchResult[];
 }
 
+const PER_PAGE = 10;
+
 export const SearchResults: FC<ISearchResultsProps> = ({
   items
 }: ISearchResultsProps) => {
   const { q } = useParams();
   const [currentPage, setCurrentPage] = useState(1);
-  const perPage = 10;
-  const pagesCount = Math.ceil(items.length / perPage);
+  const pagesCount = Math.ceil(items.length / PER_PAGE);
   const limitedItems = items.slice(
-    (currentPage - 1) * perPage,
-    currentPage * perPage
+    (currentPage - 1) * PER_PAGE,
+    currentPage * PER_PAGE
   );
 
   return (

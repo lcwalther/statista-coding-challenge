@@ -27,7 +27,6 @@ export const FavoritesButton: FC<IFavoritesButtonProps> = ({
   };
 
   useEffect(() => {
-    console.log('render');
     const favoriteIdsString = window.localStorage.getItem('favoriteIds');
     if (favoriteIdsString) {
       const favoriteIds = JSON.parse(favoriteIdsString);
