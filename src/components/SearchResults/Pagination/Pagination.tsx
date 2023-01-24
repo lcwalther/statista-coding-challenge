@@ -14,7 +14,7 @@ export const Pagination: FC<IPaginationProps> = ({
   onPageChange
 }) => {
   return (
-    <div className="mt-5 flex gap-3 items-center justify-center text-statista-grey">
+    <div className="mt-5 flex gap-3 items-center justify-center text-statista-grey-dark">
       <button
         className="h-8 w-8 flex justify-center items-center rounded-full shadow-md disabled:opacity-50"
         onClick={() => onPageChange(currentPage - 1)}

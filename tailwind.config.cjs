@@ -4,13 +4,14 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        'statista-dark': '#0f2741',
-        'statista-dark2': '#7b94a3',
-        'statista-dark3': '#0069bc',
-        statista: '#0077d5',
-        'statista-gradient-start': '#143356',
-        'statista-grey': '#455F7C',
-        'statista-light-grey': '#f5f8fb'
+        'statista-blue-light': '#0b85e5',
+        'statista-blue': '#0077d5',
+        'statista-blue-dark': '#0f2741',
+        'statista-blue-dark2': '#143356',
+        'statista-blue-dark3': '#0069bc',
+        'statista-grey-light': '#f5f8fb',
+        'statista-grey': '#7b94a3',
+        'statista-grey-dark': '#455F7C'
       },
       backgroundImage: {
         iconPremium:

@@ -4,7 +4,7 @@ import { DetailPage, FavoritesPage, SearchPage } from './routes';
 function App() {
   return (
     <div className="h-screen font-open-sans font-light tracking-wide">
-      <div className="bg-statista-dark px-10 py-2 text-white font-normal">
+      <div className="bg-statista-blue-dark px-10 py-2 text-white font-normal">
         <Link to="/">Suche</Link> | <Link to="/favorites">Favoriten</Link>
       </div>
       <Routes>

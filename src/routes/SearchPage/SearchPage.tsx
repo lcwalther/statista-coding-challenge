@@ -31,11 +31,11 @@ export const SearchPage: FC = () => {
 
   return (
     <>
-      <section className="flex flex-col justify-center items-center h-4/6 bg-gradient-to-br from-statista-gradient-start to-statista-dark px-5">
+      <section className="flex flex-col justify-center items-center h-4/6 bg-gradient-to-br from-statista-blue-dark2 to-statista-blue-dark px-5">
         <h1 className="text-2xl md:text-6xl	mb-5 md:mb-2.5 md:leading-tight text-white text-center">
           Empowering people with data
         </h1>
-        <h2 className="text-base md:text-2xl text-statista-dark2">
+        <h2 className="text-base md:text-2xl text-statista-grey-dark">
           Insights und Fakten aus 170 Branchen und 150+ Ländern
         </h2>
         <SearchForm onSubmit={handleSubmit} />

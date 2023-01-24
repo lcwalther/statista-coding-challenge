@@ -49,8 +49,8 @@ export const FavoritesButton: FC<IFavoritesButtonProps> = ({
       <svg
         className={`h-6 w-6 ${
           isFavorite
-            ? 'stroke-statista-grey fill-statista-grey '
-            : 'group-hover/item:stroke-statista-grey group-hover/item:fill-none'
+            ? 'stroke-statista-blue-light fill-statista-blue-light'
+            : 'group-hover/item:stroke-statista-grey-dark group-hover/item:fill-statista-grey-dark group-hover/item:opacity-50 group-hover/button:fill-statista-blue-light group-hover/button:stroke-statista-blue-light'
         }`}
         fill="none"
         viewBox="0 0 16 16"

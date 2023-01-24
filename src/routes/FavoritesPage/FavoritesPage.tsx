@@ -33,7 +33,7 @@ export const FavoritesPage: FC = () => {
 
   return (
     <section className="max-w-screen-md mx-auto px-5 py-8">
-      <h1 className="mb-5 font-bold text-statista-dark md:text-statista-grey text-2xl leading-6">
+      <h1 className="mb-5 font-bold text-statista-blue-dark md:text-statista-grey-dark text-2xl leading-6">
         Favoriten
       </h1>
       {favoriteItems && <SearchResults items={favoriteItems} />}

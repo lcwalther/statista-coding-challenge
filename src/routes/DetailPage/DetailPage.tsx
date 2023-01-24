@@ -28,10 +28,10 @@ export const DetailPage: FC = () => {
       });
 
       return (
-        <article className="group/item max-w-screen-md mx-auto px-5 mt-7 bg-white rounded p-5 shadow-xl text-statista-grey">
+        <article className="group/item max-w-screen-md mx-auto px-5 mt-7 bg-white rounded p-5 shadow-xl text-statista-grey-dark">
           <header>
             <div className="flex w-full justify-between">
-              <h1 className="mb-1.5 font-bold text-statista-dark md:text-statista-grey text-lg leading-6">
+              <h1 className="mb-1.5 font-bold text-statista-blue-dark md:text-statista-grey-dark text-lg leading-6">
                 {item.title}
               </h1>
               <FavoritesButton id={item.identifier} />
