@@ -5,7 +5,7 @@ import { FavoritesButton } from '../../components/FavoritesButton';
 import { TSearchResult } from '../../types';
 
 export const DetailPage: FC = () => {
-  let { id } = useParams();
+  const { id } = useParams();
 
   const { data } = useQuery({
     queryKey: ['searchData', id],

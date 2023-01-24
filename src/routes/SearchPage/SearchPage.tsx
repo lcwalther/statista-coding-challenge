@@ -1,7 +1,6 @@
-import React, { FC, useState } from 'react';
+import React, { FC } from 'react';
 import { useQuery } from '@tanstack/react-query';
 import { SearchResults, SearchForm } from '../../components';
-import { TSearchResult } from '../../types';
 import { useParams, useNavigate } from 'react-router-dom';
 
 export const SearchPage: FC = () => {
