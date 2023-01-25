@@ -1,6 +1,5 @@
 import { describe, it, vi } from 'vitest';
 import { BrowserRouter } from 'react-router-dom';
-import { screen } from '@testing-library/react';
 import { UseQueryResult } from '@tanstack/react-query';
 import { FavoritesPage } from './FavoritesPage';
 import * as hooks from '../hooks';
@@ -30,18 +29,20 @@ describe('FavoritesPage', () => {
       .spyOn(hooks, 'useFetchFavorites')
       .mockImplementation(() => {
         return Promise.resolve({
-          data: { items: [{ identifier: 1, title: 'item 1' }] }
+          data: { items: searchResultItemsFixture }
         } as UseQueryResult<any, unknown>);
       });
 
     // when
     const { getByText, getAllByTestId, getAllByRole } = customRender(
-      <FavoritesPage />
+      <BrowserRouter>
+        <FavoritesPage />
+      </BrowserRouter>
     );
 
     // then
     expect(useFetchFavoritesSpy).toHaveBeenCalled();
-    expect(getByText('item 1')).toBeInTheDocument();
+    expect(getByText(searchResultItemsFixture[0].title)).toBeInTheDocument();
 
     const searchResults = getAllByTestId('search-result-item');
     expect(searchResults).toHaveLength(searchResultItemsFixture.length);

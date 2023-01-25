@@ -9,7 +9,7 @@ export function useFetchSearchData(searchTerm: string = '') {
           'https://cdn.statcdn.com/static/application/search_results.json'
         ).then((res) => res.json());
       } else {
-        return null;
+        return Promise.resolve([]);
       }
     }
   });

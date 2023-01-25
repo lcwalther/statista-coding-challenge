@@ -1,7 +1,5 @@
 import { describe, it } from 'vitest';
 import { screen, render, fireEvent } from '@testing-library/react';
-import { customRender } from '../../test-data';
-import { BrowserRouter, MemoryRouter } from 'react-router-dom';
 import { FavoritesButton } from './FavoritesButton';
 
 describe('FavoritesButton', () => {

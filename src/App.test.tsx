@@ -72,13 +72,14 @@ describe('App', () => {
 
     // when
     const { getByText } = customRender(
-      <MemoryRouter initialEntries={['/items/661751']}>
+      <MemoryRouter initialEntries={['/items/1']}>
         <App />
       </MemoryRouter>
     );
     const titleValue = getByText('item 1');
 
     // then
+    expect(useFetchDetailsSpy).toHaveBeenCalled();
     expect(titleValue).toBeInTheDocument();
   });
 
