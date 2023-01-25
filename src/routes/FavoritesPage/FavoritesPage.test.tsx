@@ -5,6 +5,8 @@ import { FavoritesPage } from './FavoritesPage';
 import * as hooks from '../hooks';
 import { customRender, searchResultItemsFixture } from '../../test-data/';
 
+const twoSearchResultItemsFixture = [...searchResultItemsFixture].slice(0, 2);
+
 describe('FavoritesPage', () => {
   beforeEach(() => {
     localStorage.clear();
@@ -22,14 +24,14 @@ describe('FavoritesPage', () => {
 
   test.skip('renders favorites when local storage contains ids', async () => {
     // given
-    const itemsIds = searchResultItemsFixture.map((item) => item.identifier);
+    const itemsIds = twoSearchResultItemsFixture.map((item) => item.identifier);
     localStorage.setItem('favoriteIds', JSON.stringify(itemsIds));
 
     const useFetchFavoritesSpy = vi
       .spyOn(hooks, 'useFetchFavorites')
       .mockImplementation(() => {
         return Promise.resolve({
-          data: { items: searchResultItemsFixture }
+          data: { items: twoSearchResultItemsFixture }
         } as UseQueryResult<any, unknown>);
       });
 
@@ -42,18 +44,18 @@ describe('FavoritesPage', () => {
 
     // then
     expect(useFetchFavoritesSpy).toHaveBeenCalled();
-    expect(getByText(searchResultItemsFixture[0].title)).toBeInTheDocument();
+    expect(getByText(twoSearchResultItemsFixture[0].title)).toBeInTheDocument();
 
     const searchResults = getAllByTestId('search-result-item');
-    expect(searchResults).toHaveLength(searchResultItemsFixture.length);
+    expect(searchResults).toHaveLength(twoSearchResultItemsFixture.length);
 
-    const headerTitle1 = getByText(searchResultItemsFixture[0].title);
-    const headerTitle2 = getByText(searchResultItemsFixture[1].title);
+    const headerTitle1 = getByText(twoSearchResultItemsFixture[0].title);
+    const headerTitle2 = getByText(twoSearchResultItemsFixture[1].title);
     expect(headerTitle1).toBeInTheDocument();
     expect(headerTitle2).toBeInTheDocument();
 
-    const subject1 = getByText(searchResultItemsFixture[0].subject);
-    const subject2 = getByText(searchResultItemsFixture[1].subject);
+    const subject1 = getByText(twoSearchResultItemsFixture[0].subject);
+    const subject2 = getByText(twoSearchResultItemsFixture[1].subject);
     expect(subject1).toBeInTheDocument();
     expect(subject2).toBeInTheDocument();
 

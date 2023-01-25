@@ -31,6 +31,7 @@ export const Pagination: FC<IPaginationProps> = ({
         className="h-8 w-8 flex justify-center items-center rounded-full shadow-md disabled:opacity-50"
         onClick={() => onPageChange(currentPage + 1)}
         disabled={currentPage === pagesCount}
+        data-testid="pagination-button-right"
       >
         <img className="h-4 w-4" src={arrowRight} alt="Weiter" />
       </button>

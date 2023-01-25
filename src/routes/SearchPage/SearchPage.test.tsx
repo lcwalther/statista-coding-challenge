@@ -6,6 +6,8 @@ import { SearchPage } from './SearchPage';
 import * as hooks from '../hooks';
 import { customRender, searchResultItemsFixture } from '../../test-data/';
 
+const twoSearchResultItemsFixture = searchResultItemsFixture.slice(0, 2);
+
 describe('SearchPage', () => {
   it('renders the correct DOM elements', async () => {
     // given
@@ -61,7 +63,7 @@ describe('SearchPage', () => {
       .spyOn(hooks, 'useFetchSearchData')
       .mockImplementation(() => {
         return {
-          data: { items: searchResultItemsFixture }
+          data: { items: twoSearchResultItemsFixture }
         } as UseQueryResult<any, unknown>;
       });
 
@@ -84,15 +86,15 @@ describe('SearchPage', () => {
     expect(useFetchSearchDataSpy).toHaveBeenCalled();
 
     const searchResults = screen.getAllByTestId('search-result-item');
-    expect(searchResults).toHaveLength(searchResultItemsFixture.length);
+    expect(searchResults).toHaveLength(twoSearchResultItemsFixture.length);
 
-    const headerTitle1 = screen.getByText(searchResultItemsFixture[0].title);
-    const headerTitle2 = screen.getByText(searchResultItemsFixture[1].title);
+    const headerTitle1 = screen.getByText(twoSearchResultItemsFixture[0].title);
+    const headerTitle2 = screen.getByText(twoSearchResultItemsFixture[1].title);
     expect(headerTitle1).toBeInTheDocument();
     expect(headerTitle2).toBeInTheDocument();
 
-    const subject1 = screen.getByText(searchResultItemsFixture[0].subject);
-    const subject2 = screen.getByText(searchResultItemsFixture[1].subject);
+    const subject1 = screen.getByText(twoSearchResultItemsFixture[0].subject);
+    const subject2 = screen.getByText(twoSearchResultItemsFixture[1].subject);
     expect(subject1).toBeInTheDocument();
     expect(subject2).toBeInTheDocument();
 
