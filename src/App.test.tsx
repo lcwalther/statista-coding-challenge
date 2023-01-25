@@ -1,7 +1,7 @@
 import { describe, it } from 'vitest';
 import { screen } from '@testing-library/react';
 import App from './App';
-import { customRender } from './testUtils';
+import { customRender } from './test-data/';
 import { BrowserRouter, MemoryRouter } from 'react-router-dom';
 
 describe('App', () => {

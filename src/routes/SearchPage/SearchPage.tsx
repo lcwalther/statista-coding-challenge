@@ -9,12 +9,11 @@ export const SearchPage: FC = () => {
 
   const { data } = useFetchSearchData(q as string);
 
+  const inputRef = React.useRef<HTMLInputElement>(null);
+
   const handleSubmit = (e: React.SyntheticEvent) => {
     e.preventDefault();
-    const target = e.target as typeof e.target & {
-      search: { value: string };
-    };
-    navigate(`/search/${target.search.value}`);
+    navigate(`/search/${inputRef.current?.value}`);
   };
 
   return (
@@ -26,7 +25,7 @@ export const SearchPage: FC = () => {
         <h2 className="text-base md:text-2xl text-statista-grey-dark">
           Insights und Fakten aus 170 Branchen und 150+ Ländern
         </h2>
-        <SearchForm onSubmit={handleSubmit} />
+        <SearchForm onSubmit={handleSubmit} inputRef={inputRef} />
       </section>
       <section className="max-w-screen-md mx-auto px-5 py-8">
         {data?.items && <SearchResults items={data.items} />}

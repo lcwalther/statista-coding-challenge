@@ -1,13 +1,15 @@
-import { FC } from 'react';
+import { FC, FormEventHandler, RefObject } from 'react';
 import { useParams } from 'react-router-dom';
 import { SearchButton } from './SearchButton';
 
 interface ISearchFormProps {
-  onSubmit: React.FormEventHandler;
+  onSubmit: FormEventHandler;
+  inputRef: RefObject<HTMLInputElement>;
 }
 
 export const SearchForm: FC<ISearchFormProps> = ({
-  onSubmit
+  onSubmit,
+  inputRef
 }: ISearchFormProps) => {
   const { q } = useParams();
 
@@ -17,6 +19,7 @@ export const SearchForm: FC<ISearchFormProps> = ({
       onSubmit={onSubmit}
     >
       <input
+        ref={inputRef}
         className="placeholder:italic h-14 pl-6 pr-20 w-full rounded-full focus:outline focus:outline-4"
         placeholder="Statistiken, Prognosen und Umfragen finden"
         type="search"

@@ -11,7 +11,10 @@ export const SearchResultItem: React.FC<ISearchResultItemProps> = ({
 }: ISearchResultItemProps) => {
   return (
     <Link to={`/items/${item.identifier}`}>
-      <div className="group/item mb-2.5 w-full hover:bg-statista-grey-light rounded flex p-2.5">
+      <div
+        className="group/item mb-2.5 w-full hover:bg-statista-grey-light rounded flex p-2.5"
+        data-testid="search-result-item"
+      >
         <div
           className={`${
             item.premium ? 'bg-iconPremium' : 'bg-iconBasic'
@@ -24,7 +27,7 @@ export const SearchResultItem: React.FC<ISearchResultItemProps> = ({
             </p>
             <FavoritesButton id={item.identifier} />
           </div>
-          <p className="mt-1 text-statista-grey-dark text-base text-sm text-ellipsis overflow-hidden whitespace-nowrap">
+          <p className="mt-1 text-statista-grey-dark text-sm text-ellipsis overflow-hidden whitespace-nowrap">
             {item.subject}
           </p>
         </div>
