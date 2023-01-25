@@ -54,6 +54,7 @@ export const FavoritesButton: FC<IFavoritesButtonProps> = ({
         fill="none"
         viewBox="0 0 16 16"
         xmlns="http://www.w3.org/2000/svg"
+        data-testid="star"
       >
         <path d="M8.457 2.796a.5.5 0 00-.914 0L6.141 5.942l-3.424.361a.5.5 0 00-.283.869l2.558 2.305-.714 3.369a.5.5 0 00.739.537L8 11.663l2.983 1.72a.5.5 0 00.739-.537l-.715-3.369 2.558-2.305a.5.5 0 00-.282-.869L9.86 5.942 8.457 2.796z"></path>
       </svg>
