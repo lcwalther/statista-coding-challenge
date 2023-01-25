@@ -18,8 +18,8 @@ export function useFetchSearchData(searchTerm: string = '') {
 export function useFetchDetails(id: string = '') {
   return useQuery({
     queryKey: ['searchData', id],
-    queryFn: async () =>
-      await fetch(
+    queryFn: () =>
+      fetch(
         'https://cdn.statcdn.com/static/application/search_results.json'
       ).then((res) => res.json())
   });
@@ -28,8 +28,8 @@ export function useFetchDetails(id: string = '') {
 export function useFetchFavorites() {
   return useQuery({
     queryKey: ['fetchData', 'favorites'],
-    queryFn: async () =>
-      await fetch(
+    queryFn: () =>
+      fetch(
         'https://cdn.statcdn.com/static/application/search_results.json'
       ).then((res) => res.json())
   });
