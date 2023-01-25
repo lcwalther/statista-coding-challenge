@@ -41,19 +41,17 @@ describe('SearchPage', () => {
       .mockImplementation(() => {
         return { data: { items: [] } } as UseQueryResult<any, unknown>;
       });
-
     const { user } = customRender(
       <BrowserRouter>
         <SearchPage />
       </BrowserRouter>
     );
-
-    const searchInput = screen.queryByPlaceholderText(
-      'Statistiken, Prognosen und Umfragen finden'
-    ) as HTMLInputElement;
     const searchButton = screen.getByRole('button', { name: /search/i });
 
+    // when
     await user.click(searchButton);
+
+    // then
     expect(useFetchSearchDataSpy).toHaveBeenCalled();
   });
   it('renders results when valid data is returned', async () => {
@@ -77,6 +75,7 @@ describe('SearchPage', () => {
     ) as HTMLInputElement;
     const searchButton = screen.getByRole('button', { name: /search/i });
 
+    // when/then
     await user.type(searchInput, 'Statista');
     expect(searchInput.value).toBe('Statista');
 
@@ -86,14 +85,22 @@ describe('SearchPage', () => {
     const searchResults = screen.getAllByTestId('search-result-item');
     expect(searchResults).toHaveLength(searchResultItemsFixture.length);
 
-    // const headerTitle = searchResults[0]
-    // expect(headerTitle).toBeInTheDocument()
+    const headerTitle1 = screen.getByText(searchResultItemsFixture[0].title);
+    const headerTitle2 = screen.getByText(searchResultItemsFixture[1].title);
+    expect(headerTitle1).toBeInTheDocument();
+    expect(headerTitle2).toBeInTheDocument();
 
-    // const headerSubTitle = searchResults[0]
-    // expect(headerSubTitle).toBeInTheDocument()
+    const subject1 = screen.getByText(searchResultItemsFixture[0].subject);
+    const subject2 = screen.getByText(searchResultItemsFixture[1].subject);
+    expect(subject1).toBeInTheDocument();
+    expect(subject2).toBeInTheDocument();
 
-    // const favoriteButton = {}
-    // expect(favoriteButton).toBeInTheDocument()
+    const favoriteButtons = screen.getAllByRole('button', {
+      name: 'fav-button'
+    });
+    expect(favoriteButtons[0]).toBeInTheDocument();
+    expect(favoriteButtons[1]).toBeInTheDocument();
+    expect(favoriteButtons).toHaveLength(2);
   });
   it('renders no results when invalid data is returned', async () => {
     // given
@@ -116,6 +123,7 @@ describe('SearchPage', () => {
     ) as HTMLInputElement;
     const searchButton = screen.getByRole('button', { name: /search/i });
 
+    // when/then
     await user.type(searchInput, 'abc');
     expect(searchInput.value).toBe('abc');
 
