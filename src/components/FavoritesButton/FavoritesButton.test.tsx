@@ -14,14 +14,11 @@ describe('FavoritesButton', () => {
   it('renders the correct DOM elements', async () => {
     // given
     render(<FavoritesButton id={id} />);
-
     // when
-
     // then
     const button = screen.getByRole('button');
-    expect(button).toBeInTheDocument();
-
     const svg = screen.getByTestId('star');
+    expect(button).toBeInTheDocument();
     expect(svg).toBeInTheDocument();
   });
 
@@ -29,10 +26,8 @@ describe('FavoritesButton', () => {
     // given
     const { getByTestId } = render(<FavoritesButton id={id} />);
     const button = getByTestId('star');
-
     // when
     fireEvent.click(button);
-
     // then
     expect(localStorage.getItem('favoriteIds')).toEqual(JSON.stringify([id]));
   });
@@ -42,10 +37,8 @@ describe('FavoritesButton', () => {
     localStorage.setItem('favoriteIds', JSON.stringify([id]));
     const { getByTestId } = render(<FavoritesButton id={id} />);
     const button = getByTestId('star');
-
     // when
     fireEvent.click(button);
-
     // then
     expect(localStorage.getItem('favoriteIds')).toEqual(JSON.stringify([]));
   });

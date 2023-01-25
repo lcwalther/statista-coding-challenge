@@ -1,4 +1,3 @@
-import { useQuery } from '@tanstack/react-query';
 import { FC, useEffect, useState } from 'react';
 import { SearchResults } from '../../components';
 import { TSearchResult } from '../../types';

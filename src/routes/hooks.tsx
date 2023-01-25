@@ -17,7 +17,7 @@ export function useFetchSearchData(searchTerm: string = '') {
 
 export function useFetchDetails(id: string = '') {
   return useQuery({
-    queryKey: ['searchData', id],
+    queryKey: ['fetchData', id],
     queryFn: () =>
       fetch(
         'https://cdn.statcdn.com/static/application/search_results.json'

@@ -54,6 +54,7 @@ describe('SearchPage', () => {
     // then
     expect(useFetchSearchDataSpy).toHaveBeenCalled();
   });
+
   it('renders results when valid data is returned', async () => {
     // given
     const useFetchSearchDataSpy = vi
@@ -102,6 +103,7 @@ describe('SearchPage', () => {
     expect(favoriteButtons[1]).toBeInTheDocument();
     expect(favoriteButtons).toHaveLength(2);
   });
+
   it('renders no results when invalid data is returned', async () => {
     // given
     const useFetchSearchDataSpy = vi
